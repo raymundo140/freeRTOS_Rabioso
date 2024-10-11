@@ -1,0 +1,26 @@
+18:08:33 **** Incremental Build of configuration Debug for project freeRTOS_CM7 ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DCORE_CM7 -DUSE_HAL_DRIVER -DSTM32H745xx -c -I../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/Third_Party/FreeRTOS/Source/include -I../../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartDefaultTask':
+../Core/Src/main.c:416:4: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+  416 |    printf("CM4 Elapsed time: %f seconds\r\n", receivedTime);
+      |    ^~~~~~
+../Core/Src/main.c:416:4: warning: incompatible implicit declaration of built-in function 'printf'
+../Core/Src/main.c:23:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   22 | #include "stream_buffer.h"
+  +++ |+#include <stdio.h>
+   23 | /* Private includes ----------------------------------------------------------*/
+arm-none-eabi-gcc -o "freeRTOS_CM7.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\goma4\Desktop\Folder\TEC\CintoSemAgo-Dic2024\DesignofAdvancedEmbeddedSystems-TE2004B.602\Modulo4\freeRTOS\freeRTOS\CM7\STM32H745ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="freeRTOS_CM7.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: freeRTOS_CM7.elf
+ 
+arm-none-eabi-size   freeRTOS_CM7.elf 
+arm-none-eabi-objdump -h -S  freeRTOS_CM7.elf  > "freeRTOS_CM7.list"
+   text	   data	    bss	    dec	    hex	filename
+  49496	    492	  20852	  70840	  114b8	freeRTOS_CM7.elf
+Finished building: default.size.stdout
+ 
+Finished building: freeRTOS_CM7.list
+ 
+
+18:08:34 Build Finished. 0 errors, 2 warnings. (took 1s.248ms)
+
